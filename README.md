@@ -15,9 +15,9 @@ Official repository for rank1, a reasoning reranker model that "thinks". Rank1 l
 #### Models
 | Resource | Description |
 |:---------|:------------|
-| [rank1-7b](https://huggingface.co/jhu-clsp/rank1-7b) | Trained from Qwen-7B base |
-| [rank1-14b](https://huggingface.co/jhu-clsp/rank1-14b) | Trained from Qwen-14B base |
-| [rank1-32b](https://huggingface.co/jhu-clsp/rank1-32b) | Trained from Qwen-32B base |
+| [rank1-7b](https://huggingface.co/jhu-clsp/rank1-7b) | Trained from Qwen2.5-7B base |
+| [rank1-14b](https://huggingface.co/jhu-clsp/rank1-14b) | Trained from Qwen2.5-14B base |
+| [rank1-32b](https://huggingface.co/jhu-clsp/rank1-32b) | Trained from Qwen2.5-32B base |
 | [rank1-mistral-2501-24b](https://huggingface.co/jhu-clsp/rank1-mistral-2501-24b) | Trained from Mistral-Small 2501 24B base |
 | [rank1-llama3-8b](https://huggingface.co/jhu-clsp/rank1-llama3-8b) | Trained from Llama 3.1 8B base |
 
