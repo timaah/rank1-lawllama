@@ -9,24 +9,24 @@
     <p>
 </h4>
 
-Official repository for Rank1, a reasoning reranker model that "thinks". Rank1 leverages test-time compute to generate reasoning chains before making relevance judgments.
+Official repository for rank1, a reasoning reranker model that "thinks". Rank1 leverages test-time compute to generate reasoning chains before making relevance judgments.
 
 ## Links
 | Resource | Description |
 |:---------|:------------|
-| [rank1-7b](https://huggingface.co/jhu-clsp/Rank1-7B) | Trained from Qwen-7B base |
-| [rank1-14b](https://huggingface.co/jhu-clsp/Rank1-14B) | Trained from Qwen-14B base |
-| [rank1-32b](https://huggingface.co/jhu-clsp/Rank1-32B) | Trained from Qwen-32B base |
-| [rank1-mistral-2501-24b](https://huggingface.co/jhu-clsp/Rank1-Mistral-2501-24B) | Trained from Mistral-Small 2501 24B base |
-| [rank1-llama3-8b](https://huggingface.co/jhu-clsp/Rank1-Llama3-8B) | Trained from Llama 3.1 8B base |
-| [rank1-7b-awq](https://huggingface.co/jhu-clsp/Rank1-7B-awq) | Quantized version of Rank1-7B  |
-| [rank1-14b-awq](https://huggingface.co/jhu-clsp/Rank1-14B-awq) | Quantized version of Rank1-14B  |
-| [rank1-32b-awq](https://huggingface.co/jhu-clsp/Rank1-32B-awq) | Quantized version of Rank1-32B  |
-| [rank1-mistral-2501-24b-awq](https://huggingface.co/jhu-clsp/Rank1-Mistral-2501-24B-awq) | Quantized version of Rank1-Mistral-24B  |
-| [rank1-llama3-8b-awq](https://huggingface.co/jhu-clsp/Rank1-Llama3-8B-awq) | Quantized version of Rank1-Llama3-8B  |
-| [rank1-r1-msmarco](https://huggingface.co/datasets/jhu-clsp/Rank1-R1-MSMARCO) | All R1 output examples from MS MARCO |
-| [rank1-training-data](https://huggingface.co/datasets/jhu-clsp/Rank1-training-data) | Training data used for Rank1 models |
-| [rank1-run-files](https://huggingface.co/datasets/jhu-clsp/Rank1-Run-Files) | Pre-computed run files for use in top 100 doc reranking |
+| [rank1-7b](https://huggingface.co/jhu-clsp/rank1-7b) | Trained from Qwen-7B base |
+| [rank1-14b](https://huggingface.co/jhu-clsp/rank1-14b) | Trained from Qwen-14B base |
+| [rank1-32b](https://huggingface.co/jhu-clsp/rank1-32b) | Trained from Qwen-32B base |
+| [rank1-mistral-2501-24b](https://huggingface.co/jhu-clsp/rank1-mistral-2501-24b) | Trained from Mistral-Small 2501 24B base |
+| [rank1-llama3-8b](https://huggingface.co/jhu-clsp/rank1-llama3-8b) | Trained from Llama 3.1 8B base |
+| [rank1-7b-awq](https://huggingface.co/jhu-clsp/rank1-7b-awq) | Quantized version of rank1-7b  |
+| [rank1-14b-awq](https://huggingface.co/jhu-clsp/rank1-14b-awq) | Quantized version of rank1-14b  |
+| [rank1-32b-awq](https://huggingface.co/jhu-clsp/rank1-32b-awq) | Quantized version of rank1-32b  |
+| [rank1-mistral-2501-24b-awq](https://huggingface.co/jhu-clsp/rank1-mistral-2501-24b-awq) | Quantized version of rank1-mistral-24b  |
+| [rank1-llama3-8b-awq](https://huggingface.co/jhu-clsp/rank1-llama3-8b-awq) | Quantized version of rank1-llama3-8b  |
+| [rank1-r1-msmarco](https://huggingface.co/datasets/jhu-clsp/rank1-R1-MSMARCO) | All R1 output examples from MS MARCO |
+| [rank1-training-data](https://huggingface.co/datasets/jhu-clsp/rank1-training-data) | Training data used for rank1 models |
+| [rank1-run-files](https://huggingface.co/datasets/jhu-clsp/rank1-Run-Files) | Pre-computed run files for use in top 100 doc reranking |
 
 ## Installation 
 To reproduce the experiments, you can use the following code with uv for fast, reliable dependency management:
@@ -44,8 +44,7 @@ source .venv/bin/activate
 
 # Install dependencies with uv
 uv pip install -r requirements.txt
-uv pip install mteb/
-
+uv pip install -e mteb_branch/
 
 # Recommended: download a flash attention wheel from https://github.com/Dao-AILab/flash-attention/releases and `uv pip install` it
 # wget https://github.com/Dao-AILab/flash-attention/releases/download/v2.7.4.post1/flash_attn-2.7.4.post1+cu12torch2.5cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
@@ -66,8 +65,8 @@ bash launch_job.sh jhu-clsp/rank1-7b NevIR default 1
 
 Parameters:
 - `jhu-clsp/rank1-7b`: Model name or path
-- `BrightRetrieval`: Dataset name
-- `biology`: Subtask name (use "default" if no subtask)
+- `NevIR`: Dataset name
+- `default`: Subtask name (use "default" if no subtask)
 - `1`: Number of GPUs to use
 
 
@@ -79,7 +78,7 @@ from rank1 import rank1
 
 # Initialize the model
 model = rank1(
-    model_name_or_path="jhu-clsp/Rank1-7B",
+    model_name_or_path="jhu-clsp/rank1-7B",
     num_gpus=1,
     device="cuda",
     context_size=16000,
@@ -100,11 +99,11 @@ Rank1 is compatible with the MTEB benchmarking framework. To evaluate your model
 
 ```python
 from mteb import MTEB
-from rank1 import Rank1
+from rank1 import rank1
 
 # Initialize your model
-model = Rank1(
-    model_name_or_path="jhu-clsp/Rank1-7B",
+model = rank1(
+    model_name_or_path="jhu-clsp/rank1-7b",
     num_gpus=1,
     device="cuda"
 )
@@ -117,7 +116,7 @@ results = evaluation.run(model)
 ```
 
 ## Citing
-If you use Rank1 in your research, please cite our work:
+If you use rank1 in your research, please cite our work:
 
 ```bibtex
 @article{weller2023rank1,
