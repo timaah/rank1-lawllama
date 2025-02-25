@@ -14,16 +14,16 @@ Official repository for Rank1, a reasoning reranker model that "thinks". Rank1 l
 ## Links
 | Resource | Description |
 |:---------|:------------|
-| [Rank1-7B](https://huggingface.co/jhu-clsp/Rank1-7B) | Trained from Qwen-7B base for document reranking with reasoning |
-| [Rank1-14B](https://huggingface.co/jhu-clsp/Rank1-14B) | Trained from Qwen-14B base for document reranking with reasoning |
-| [Rank1-32B](https://huggingface.co/jhu-clsp/Rank1-32B) | Trained from Qwen-32B base for document reranking with reasoning |
-| [Rank1-Mistral-2501-24B](https://huggingface.co/jhu-clsp/Rank1-Mistral-2501-24B) | Trained from Mistral-Small 2501 24B base for document reranking with reasoning |
-| [Rank1-Llama3-8B](https://huggingface.co/jhu-clsp/Rank1-Llama3-8B) | Trained from Llama 3.1 8B base for document reranking with reasoning |
-| [Rank1-7B-awq](https://huggingface.co/jhu-clsp/Rank1-7B-awq) | Quantized version of Rank1-7B for efficient inference |
-| [Rank1-14B-awq](https://huggingface.co/jhu-clsp/Rank1-14B-awq) | Quantized version of Rank1-14B for efficient inference |
-| [Rank1-32B-awq](https://huggingface.co/jhu-clsp/Rank1-32B-awq) | Quantized version of Rank1-32B for efficient inference |
-| [Rank1-Mistral-2501-24B-awq](https://huggingface.co/jhu-clsp/Rank1-Mistral-2501-24B-awq) | Quantized version of Rank1-Mistral-24B for efficient inference |
-| [Rank1-Llama3-8B-awq](https://huggingface.co/jhu-clsp/Rank1-Llama3-8B-awq) | Quantized version of Rank1-Llama3-8B for efficient inference |
+| [Rank1-7B](https://huggingface.co/jhu-clsp/Rank1-7B) | Trained from Qwen-7B base |
+| [Rank1-14B](https://huggingface.co/jhu-clsp/Rank1-14B) | Trained from Qwen-14B base |
+| [Rank1-32B](https://huggingface.co/jhu-clsp/Rank1-32B) | Trained from Qwen-32B base |
+| [Rank1-Mistral-2501-24B](https://huggingface.co/jhu-clsp/Rank1-Mistral-2501-24B) | Trained from Mistral-Small 2501 24B base |
+| [Rank1-Llama3-8B](https://huggingface.co/jhu-clsp/Rank1-Llama3-8B) | Trained from Llama 3.1 8B base |
+| [Rank1-7B-awq](https://huggingface.co/jhu-clsp/Rank1-7B-awq) | Quantized version of Rank1-7B  |
+| [Rank1-14B-awq](https://huggingface.co/jhu-clsp/Rank1-14B-awq) | Quantized version of Rank1-14B  |
+| [Rank1-32B-awq](https://huggingface.co/jhu-clsp/Rank1-32B-awq) | Quantized version of Rank1-32B  |
+| [Rank1-Mistral-2501-24B-awq](https://huggingface.co/jhu-clsp/Rank1-Mistral-2501-24B-awq) | Quantized version of Rank1-Mistral-24B  |
+| [Rank1-Llama3-8B-awq](https://huggingface.co/jhu-clsp/Rank1-Llama3-8B-awq) | Quantized version of Rank1-Llama3-8B  |
 | [Rank1-R1-MSMARCO](https://huggingface.co/datasets/jhu-clsp/Rank1-R1-MSMARCO) | All R1 output examples from MS MARCO |
 | [Rank1-training-data](https://huggingface.co/datasets/jhu-clsp/Rank1-training-data) | Training data used for Rank1 models |
 | [Rank1-Run-Files](https://huggingface.co/datasets/jhu-clsp/Rank1-Run-Files) | Pre-computed run files for use in top 100 doc reranking |
