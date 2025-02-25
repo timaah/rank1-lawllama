@@ -5,7 +5,7 @@
         <a href="#links">Model/Data Links</a> |
         <a href="#installation">Installation</a> |
         <a href="#usage">Usage</a> |
-        <a href="#citing">Citing</a>
+        <a href="#citing">Citation</a>
     <p>
 </h4>
 
@@ -124,7 +124,7 @@ results = evaluation.run(model)
 ```
 
 ## Citing
-If you use rank1 in your research, please cite our work:
+If you use rank1 you can cite:
 
 ```bibtex
 @article{weller2025rank1,
