@@ -24,12 +24,12 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-class Rank1(RerankerWrapper):
-    name: str = "Rank1"
+class rank1(RerankerWrapper):
+    name: str = "rank1"
 
     def __init__(
         self,
-        model_name_or_path: str = "jhu-clsp/Rank1-7B",
+        model_name_or_path: str = "jhu-clsp/rank1-7b",
         batch_size: int = 999999999999,
         context_size: int = 16000,
         max_output_tokens: int = 8192,
@@ -41,7 +41,7 @@ class Rank1(RerankerWrapper):
         **kwargs,
     ):
         """
-        Rank1 is a reasoning reranker model (using test-time compute) which generates a reasoning chain before deciding true or false
+        rank1 is a reasoning reranker model (using test-time compute) which generates a reasoning chain before deciding true or false
 
         Args:
             model_name_or_path: Path to the model or name of the model on HuggingFace Hub
@@ -90,7 +90,6 @@ class Rank1(RerankerWrapper):
             stop=["</think> true", "</think> false"],
             skip_special_tokens=False
         )
-
 
     def _fix_incomplete_responses(
         self, 
@@ -246,7 +245,6 @@ class Rank1(RerankerWrapper):
                 f"Query: {query}\n" \
                 f"Passage: {doc_content}\n" \
                 "<think>" # force the model to start with this
-
 
     def _prepare_prompts_for_rethink(self, prompts: List[str], texts: List[str], rethink_text: str = "Wait") -> List[str]:
         """Prepare prompts for the rethinking step."""

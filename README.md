@@ -14,19 +14,19 @@ Official repository for Rank1, a reasoning reranker model that "thinks". Rank1 l
 ## Links
 | Resource | Description |
 |:---------|:------------|
-| [Rank1-7B](https://huggingface.co/jhu-clsp/Rank1-7B) | Trained from Qwen-7B base |
-| [Rank1-14B](https://huggingface.co/jhu-clsp/Rank1-14B) | Trained from Qwen-14B base |
-| [Rank1-32B](https://huggingface.co/jhu-clsp/Rank1-32B) | Trained from Qwen-32B base |
-| [Rank1-Mistral-2501-24B](https://huggingface.co/jhu-clsp/Rank1-Mistral-2501-24B) | Trained from Mistral-Small 2501 24B base |
-| [Rank1-Llama3-8B](https://huggingface.co/jhu-clsp/Rank1-Llama3-8B) | Trained from Llama 3.1 8B base |
-| [Rank1-7B-awq](https://huggingface.co/jhu-clsp/Rank1-7B-awq) | Quantized version of Rank1-7B  |
-| [Rank1-14B-awq](https://huggingface.co/jhu-clsp/Rank1-14B-awq) | Quantized version of Rank1-14B  |
-| [Rank1-32B-awq](https://huggingface.co/jhu-clsp/Rank1-32B-awq) | Quantized version of Rank1-32B  |
-| [Rank1-Mistral-2501-24B-awq](https://huggingface.co/jhu-clsp/Rank1-Mistral-2501-24B-awq) | Quantized version of Rank1-Mistral-24B  |
-| [Rank1-Llama3-8B-awq](https://huggingface.co/jhu-clsp/Rank1-Llama3-8B-awq) | Quantized version of Rank1-Llama3-8B  |
-| [Rank1-R1-MSMARCO](https://huggingface.co/datasets/jhu-clsp/Rank1-R1-MSMARCO) | All R1 output examples from MS MARCO |
-| [Rank1-training-data](https://huggingface.co/datasets/jhu-clsp/Rank1-training-data) | Training data used for Rank1 models |
-| [Rank1-Run-Files](https://huggingface.co/datasets/jhu-clsp/Rank1-Run-Files) | Pre-computed run files for use in top 100 doc reranking |
+| [rank1-7b](https://huggingface.co/jhu-clsp/Rank1-7B) | Trained from Qwen-7B base |
+| [rank1-14b](https://huggingface.co/jhu-clsp/Rank1-14B) | Trained from Qwen-14B base |
+| [rank1-32b](https://huggingface.co/jhu-clsp/Rank1-32B) | Trained from Qwen-32B base |
+| [rank1-mistral-2501-24b](https://huggingface.co/jhu-clsp/Rank1-Mistral-2501-24B) | Trained from Mistral-Small 2501 24B base |
+| [rank1-llama3-8b](https://huggingface.co/jhu-clsp/Rank1-Llama3-8B) | Trained from Llama 3.1 8B base |
+| [rank1-7b-awq](https://huggingface.co/jhu-clsp/Rank1-7B-awq) | Quantized version of Rank1-7B  |
+| [rank1-14b-awq](https://huggingface.co/jhu-clsp/Rank1-14B-awq) | Quantized version of Rank1-14B  |
+| [rank1-32b-awq](https://huggingface.co/jhu-clsp/Rank1-32B-awq) | Quantized version of Rank1-32B  |
+| [rank1-mistral-2501-24b-awq](https://huggingface.co/jhu-clsp/Rank1-Mistral-2501-24B-awq) | Quantized version of Rank1-Mistral-24B  |
+| [rank1-llama3-8b-awq](https://huggingface.co/jhu-clsp/Rank1-Llama3-8B-awq) | Quantized version of Rank1-Llama3-8B  |
+| [rank1-r1-msmarco](https://huggingface.co/datasets/jhu-clsp/Rank1-R1-MSMARCO) | All R1 output examples from MS MARCO |
+| [rank1-training-data](https://huggingface.co/datasets/jhu-clsp/Rank1-training-data) | Training data used for Rank1 models |
+| [rank1-run-files](https://huggingface.co/datasets/jhu-clsp/Rank1-Run-Files) | Pre-computed run files for use in top 100 doc reranking |
 
 ## Installation 
 To reproduce the experiments, you can use the following code with uv for fast, reliable dependency management:
@@ -40,48 +40,45 @@ curl -fsSL https://pkg.uv.dev/install.sh | sh
 
 # Create and activate virtual environment with uv
 uv venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+source .venv/bin/activate 
 
 # Install dependencies with uv
 uv pip install -r requirements.txt
-uv pip install -e mteb/
+uv pip install mteb/
+
 
 # Recommended: download a flash attention wheel from https://github.com/Dao-AILab/flash-attention/releases and `uv pip install` it
+# wget https://github.com/Dao-AILab/flash-attention/releases/download/v2.7.4.post1/flash_attn-2.7.4.post1+cu12torch2.5cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
+# uv pip install flash_attn-2.7.4.post1+cu12torch2.5cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
 
 # Download the Rank1-Run-Files repository (required for evaluation)
 git lfs install
-git clone https://huggingface.co/datasets/jhu-clsp/Rank1-Run-Files
+git clone https://huggingface.co/datasets/jhu-clsp/rank1-run-files
 ```
 
 ## Usage
 ### Running Evaluations
-To run an evaluation with the Rank1 model on a specific dataset:
+To run an evaluation with the rank1 model on a specific dataset:
 
 ```bash
-bash launch_job.sh jhu-clsp/Rank1-7B BrightRetrieval biology 1
+bash launch_job.sh jhu-clsp/rank1-7b NevIR default 1
 ```
 
 Parameters:
-- `jhu-clsp/Rank1-7B`: Model name or path
+- `jhu-clsp/rank1-7b`: Model name or path
 - `BrightRetrieval`: Dataset name
 - `biology`: Subtask name (use "default" if no subtask)
 - `1`: Number of GPUs to use
 
-For batch evaluation of multiple benchmarks:
-
-```bash
-# Example: evaluate on all MTEB instruction-following IR tasks
-python run_mteb.py -m jhu-clsp/Rank1-7B -d all -n 1
-```
 
 ### Using Rank1 in Your Own Code
-You can integrate Rank1 into your code:
+You can integrate rank1 into your code:
 
 ```python
-from rank1 import Rank1
+from rank1 import rank1
 
 # Initialize the model
-model = Rank1(
+model = rank1(
     model_name_or_path="jhu-clsp/Rank1-7B",
     num_gpus=1,
     device="cuda",
@@ -113,7 +110,7 @@ model = Rank1(
 )
 
 # Select tasks (or use specific task names)
-evaluation = MTEB(tasks=["BrightRetrieval"])
+evaluation = MTEB(tasks=["NevIR"])
 
 # Run evaluation
 results = evaluation.run(model)

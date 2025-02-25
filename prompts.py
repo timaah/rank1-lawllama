@@ -94,22 +94,21 @@ def get_prompt(task_name, subtask_name: str = None):
         return None
 
 
-BEIR_DATASETS = {
-    "ArguAna": "beir-runs/bm25/run.beir-v1.0.0-arguana-flat.json",
-    # "CQADupstackRetrieval": "beir-runs/bm25/run.beir-v1.0.0-cqadupstack-flat.trec",
-    "ClimateFEVER": "beir-runs/bm25/run.beir-v1.0.0-climate-fever-flat.json",
-    "DBPedia": "beir-runs/bm25/run.beir-v1.0.0-dbpedia-entity-flat.json",
-    "FEVER": "beir-runs/bm25/run.beir-v1.0.0-fever-flat.json",
-    "FiQA2018": "beir-runs/bm25/run.beir-v1.0.0-fiqa-flat.json",
-    "HotpotQA": "beir-runs/bm25/run.beir-v1.0.0-hotpotqa-flat.json",
-    "NFCorpus": "beir-runs/bm25/run.beir-v1.0.0-nfcorpus-flat.json",
-    "NQ": "beir-runs/bm25/run.beir-v1.0.0-nq-flat.json",
-    "QuoraRetrieval": "beir-runs/bm25/run.beir-v1.0.0-quora-flat.json",
-    "SCIDOCS": "beir-runs/bm25/run.beir-v1.0.0-scidocs-flat.json",
-    "SciFact": "beir-runs/bm25/run.beir-v1.0.0-scifact-flat.json",
-    "TRECCOVID": "beir-runs/bm25/run.beir-v1.0.0-trec-covid-flat.json",
-    "Touche2020": "beir-runs/bm25/run.beir-v1.0.0-webis-touche2020-flat.json",
-}
+BEIR_DATASETS = [
+    "ArguAna",
+    "ClimateFEVER",
+    "DBPedia",
+    "FEVER",
+    "FiQA2018",
+    "HotpotQA",
+    "NFCorpus",
+    "NQ",
+    "QuoraRetrieval",
+    "SCIDOCS",
+    "SciFact",
+    "TRECCOVID",
+    "Touche2020",
+]
 
 
 def validate_json(file_path: str) -> bool:

@@ -56,6 +56,7 @@ if [ -z "$num_gpus" ]; then
 fi
 
 # if subtask is "default" ignore it
+echo "$(which python)"
 if [ "$subtask" != "default" ]; then
     echo "Running with subtask: $subtask"
     python run_mteb.py -m $model -d $dataset -s $subtask -n $num_gpus 
