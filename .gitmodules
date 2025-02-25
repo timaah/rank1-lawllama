@@ -1,0 +1,4 @@
+[submodule "mteb"]
+	path = mteb
+	url = https://github.com/embeddings-benchmark/mteb.git
+	branch = ce-update
