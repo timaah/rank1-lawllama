@@ -12,6 +12,7 @@
 Official repository for rank1, a reasoning reranker model that "thinks". Rank1 leverages test-time compute to generate reasoning chains before making relevance judgments.
 
 ## Links
+#### Models
 | Resource | Description |
 |:---------|:------------|
 | [rank1-7b](https://huggingface.co/jhu-clsp/rank1-7b) | Trained from Qwen-7B base |
@@ -19,10 +20,18 @@ Official repository for rank1, a reasoning reranker model that "thinks". Rank1 l
 | [rank1-32b](https://huggingface.co/jhu-clsp/rank1-32b) | Trained from Qwen-32B base |
 | [rank1-mistral-2501-24b](https://huggingface.co/jhu-clsp/rank1-mistral-2501-24b) | Trained from Mistral-Small 2501 24B base |
 | [rank1-llama3-8b](https://huggingface.co/jhu-clsp/rank1-llama3-8b) | Trained from Llama 3.1 8B base |
+
+#### Quantized Models (fits in 24GB GPUs)
+| Resource | Description |
+|:---------|:------------|
 | [rank1-7b-awq](https://huggingface.co/jhu-clsp/rank1-7b-awq) | Quantized version of rank1-7b  |
 | [rank1-14b-awq](https://huggingface.co/jhu-clsp/rank1-14b-awq) | Quantized version of rank1-14b  |
 | [rank1-32b-awq](https://huggingface.co/jhu-clsp/rank1-32b-awq) | Quantized version of rank1-32b  |
 | [rank1-mistral-2501-24b-awq](https://huggingface.co/jhu-clsp/rank1-mistral-2501-24b-awq) | Quantized version of rank1-mistral-24b  |
+
+#### Datasets
+| Resource | Description |
+|:---------|:------------|
 | [rank1-llama3-8b-awq](https://huggingface.co/jhu-clsp/rank1-llama3-8b-awq) | Quantized version of rank1-llama3-8b  |
 | [rank1-r1-msmarco](https://huggingface.co/datasets/jhu-clsp/rank1-R1-MSMARCO) | All R1 output examples from MS MARCO |
 | [rank1-training-data](https://huggingface.co/datasets/jhu-clsp/rank1-training-data) | Training data used for rank1 models |
@@ -88,9 +97,8 @@ model = rank1(
 
 # Rerank documents
 results = model.predict({
-    "query": "Your query here",
+    "query": ["Your query/prompt here", "Same number as docs"],
     "corpus": ["Document 1 content", "Document 2 content", ...],
-    "instructions": "Your specific instructions here"
 })
 ```
 
@@ -119,7 +127,7 @@ results = evaluation.run(model)
 If you use rank1 in your research, please cite our work:
 
 ```bibtex
-@article{weller2023rank1,
+@article{weller2025rank1,
   title={Rank1: Test-Time Compute for Reranking in Information Retrieval},
   author={Weller, Orion and Ricci, Kathryn and Yang, Eugene and Yates, Andrew and Lawrie, Dawn and Van Durme, Benjamin},
   journal={arXiv preprint},
