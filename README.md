@@ -9,7 +9,7 @@
     <p>
 </h4>
 
-Official repository for rank1, a reasoning reranker model that "thinks". Rank1 leverages test-time compute to generate reasoning chains before making relevance judgments.
+Official repository for [rank1, a reasoning reranker model that "thinks"](http://arxiv.org/abs/2502.18418). Rank1 leverages test-time compute to generate reasoning chains before making relevance judgments.
 
 ## Links
 #### Models
@@ -127,11 +127,14 @@ results = evaluation.run(model)
 If you use rank1 you can cite:
 
 ```bibtex
-@article{weller2025rank1,
-  title={Rank1: Test-Time Compute for Reranking in Information Retrieval},
-  author={Weller, Orion and Ricci, Kathryn and Yang, Eugene and Yates, Andrew and Lawrie, Dawn and Van Durme, Benjamin},
-  journal={arXiv preprint},
-  year={2025},
+@misc{weller2025rank1testtimecomputereranking,
+      title={Rank1: Test-Time Compute for Reranking in Information Retrieval}, 
+      author={Orion Weller and Kathryn Ricci and Eugene Yang and Andrew Yates and Dawn Lawrie and Benjamin Van Durme},
+      year={2025},
+      eprint={2502.18418},
+      archivePrefix={arXiv},
+      primaryClass={cs.IR},
+      url={https://arxiv.org/abs/2502.18418}, 
 }
 ```
 
