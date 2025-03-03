@@ -49,8 +49,8 @@ git submodule update --init --recursive
 curl -fsSL https://pkg.uv.dev/install.sh | sh
 
 # Create and activate virtual environment with uv
-uv venv
-source .venv/bin/activate 
+uv venv env --python=3.10
+source env/bin/activate 
 
 # Install dependencies with uv
 uv pip install -r requirements.txt
