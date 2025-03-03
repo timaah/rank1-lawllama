@@ -43,6 +43,7 @@ To reproduce the experiments, you can use the following code with uv for fast, r
 ```bash
 git clone https://github.com/orionw/rank1.git
 cd rank1/
+git submodule update --init --recursive
 
 # Install uv if you don't have it already
 curl -fsSL https://pkg.uv.dev/install.sh | sh
