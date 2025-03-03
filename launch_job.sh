@@ -3,7 +3,7 @@
 
 sweep_id=$1
 # Load Python environment
-source .venv/bin/activate
+source env/bin/activate
 export VLLM_ALLOW_LONG_MAX_MODEL_LEN=1
 export VLLM_WORKER_MULTIPROC_METHOD=spawn
 
