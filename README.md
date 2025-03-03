@@ -55,13 +55,15 @@ source env/bin/activate
 # Install dependencies with uv
 uv pip install -r requirements.txt
 uv pip install -e mteb_branch/
+uv pip install --no-build-isolation xformers==0.0.28.post3
+uv pip install vllm==0.7.2
 
 # Recommended: download a flash attention wheel from https://github.com/Dao-AILab/flash-attention/releases and `uv pip install` it
 # wget https://github.com/Dao-AILab/flash-attention/releases/download/v2.7.4.post1/flash_attn-2.7.4.post1+cu12torch2.5cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
 # uv pip install flash_attn-2.7.4.post1+cu12torch2.5cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
 
 # Download the Rank1-Run-Files repository (required for evaluation)
-git lfs install
+git lfs install # if you don't have it already
 git clone https://huggingface.co/datasets/jhu-clsp/rank1-run-files
 ```
 
