@@ -15,6 +15,9 @@ Official repository for [rank1, a reasoning reranker model that "thinks"](http:/
 #### Models
 | Resource | Description |
 |:---------|:------------|
+| [rank1-0.5b](https://huggingface.co/jhu-clsp/rank1-0.5b) | Trained from Qwen2.5-0.5B base |
+| [rank1-1.5b](https://huggingface.co/jhu-clsp/rank1-1.5b) | Trained from Qwen2.5-1.5B base |
+| [rank1-3b](https://huggingface.co/jhu-clsp/rank1-3b) | Trained from Qwen2.5-3B base |
 | [rank1-7b](https://huggingface.co/jhu-clsp/rank1-7b) | Trained from Qwen2.5-7B base |
 | [rank1-14b](https://huggingface.co/jhu-clsp/rank1-14b) | Trained from Qwen2.5-14B base |
 | [rank1-32b](https://huggingface.co/jhu-clsp/rank1-32b) | Trained from Qwen2.5-32B base |
@@ -68,6 +71,12 @@ git clone https://huggingface.co/datasets/jhu-clsp/rank1-run-files
 ```
 
 ## Usage
+### Tips
+**Reproducibility** Depending on your batch size for evaluation you will get minorly different results due to non-determinisms in vLLM. For our experiments we processed all instances in one batch (e.g. batch_size=99999999999). We also found that using the flag `enforce_eager` sped up inference for the smaller models but not for the larger models.
+
+**Adapting to New Tasks** You may want to use these models on tasks where the relevance definition is different from MS MARCO. For these you will want a custom prompt to let the model know. You can see these in `prompts.py` various datasets. 
+
+
 ### Running Evaluations
 To run an evaluation with the rank1 model on a specific dataset:
 
