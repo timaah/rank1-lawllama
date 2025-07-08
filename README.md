@@ -108,10 +108,10 @@ model = rank1(
 )
 
 # Rerank documents
-results = model.predict({
-    "query": ["Your query/prompt here", "Same number as docs"],
-    "corpus": ["Document 1 content", "Document 2 content", ...],
-})
+query = "Your query / prompt here"
+corpus = ["Document 1 content", "Document 2 content", ...]
+queries = [query] * len(corpus)
+results = model.predict(list(zip(query, corpus)))
 ```
 
 ### MTEB Integration
